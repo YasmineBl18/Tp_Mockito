@@ -1,13 +1,21 @@
 package org.example.mq_tp_mockito;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.example.mq_tp_mockito.entities.IForme;
 
-@SpringBootApplication
+import java.util.List;
+
 public class MqTpMockitoApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(MqTpMockitoApplication.class, args);
+    public static double aire(List<IForme> formes) {
+        double aire = 0;
+
+        for (IForme f : formes) {
+            aire += f.aire();
+        }
+        return aire;
     }
 
+    public static void main(String[] args) {
+        System.out.println("Aire");
+    }
 }

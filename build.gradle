@@ -14,22 +14,30 @@ java {
     }
 }
 
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
-
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // --- SPRING BOOT 3 (inutile mais tu l'avais, donc conservé)
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    // --- TESTS JUNIT 5 + MOCKITO ---
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // Mockito core compatible Java 17 / Spring Boot 3
+    testImplementation 'org.mockito:mockito-core:5.11.0'
+
+    // Mockito extension pour JUnit 5 (fortement recommandé)
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.11.0'
+
+    // JUnit platform
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
